@@ -88,6 +88,11 @@ require 'views/nav-admin.php';
     </table>
 		</div>
 		</center>
+		<center>
+			<div>
+				<a href="views_reporte.php" class="text-center"><button class="btn btn-success my-2">salir</button>   </a>
+			</div>
+		</center>
 			<div class="loader" id="loader">
 			</div>		
 	 <script src="js/cargar.js">

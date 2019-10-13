@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	/* $password = hash('sha512', $password); */
 
 	/* $conexion = conexion('galeria','root',''); */
+	$_SESSION['vendedor']=$vendedor;
 	$conexion = conexion('galeria','root','');
 	if(!$conexion){
 		header('location: index.php');
@@ -24,10 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$resultado = $statement->fetch();
 	if ($resultado !== false) {
 		$_SESSION['vendedor'] = $vendedor;
-		header('Location: tabla_envio.php');
+		header('Location: cobros_ventas.php');
 	} else {
 		 '<li>Datos Incorrectos</li>';
 	}
 }
-require 'views/cobros_view.php';
+require 'views/cobros_view.php'; 
+
 ?>

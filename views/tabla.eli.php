@@ -21,6 +21,7 @@ $t = $_SESSION['titulo'];
         <td>Caracteristicas</td>
         <td>Editar</td>
         <td>Eliminar</td>
+
     </tr>
     <?php
     
@@ -41,9 +42,9 @@ $t = $_SESSION['titulo'];
                            $ix=$row['id'];
                  ?>
     <tr>
-        <td><?php echo utf8_encode($row["titulo"])?> </td>
-        <td><?php echo utf8_encode($row["referencia"])?> </td>
-        <td><?php echo utf8_encode($row["caracteristicas"])?></td>
+        <td><?php echo $row["titulo"]?> </td>
+        <td><?php echo $row["referencia"]?> </td>
+        <td><?php echo $row["caracteristicas"]?></td>
         <td><button class="btn btn-warning" data-toggle="modal" data-target="#modalEdicion1" onclick="agregaform1('<?php echo $datos ?>')"><i class="fas fa-pencil-alt"></i></button></td>
         <td><button class="btn btn-danger "onclick="preguntaSiNo('<?php echo $ix ?>')"><i class="fas fa-times"></i></button></td>
     </tr>

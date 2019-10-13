@@ -3,39 +3,53 @@
     <title>datos</title>
 </head>
 <body>
-<header>
-		<div class="contenedor">
-			<div class="logo p-3">
-                <img src="img/logo-largo.ico" alt="">                
-			</div>			
-            <?php
-             require 'nav-admin.php';
-            ?>
-		</div>
-    </header>
-    <?php
-   /*  session_start(); */
+<center>        
+     <a href="index.php" class="text-center pb-5"><button class="btn btn-info my-2">volver </button>   </a>    
+</center>
+
+    <?php    
     $date=  date("Y/m/d")." h: ".  date("h:i:a"); 
-     
+    if(isset($_SESSION['vendedor'])){
+    $vendedor=$_SESSION['vendedor'];
+     }else{
+         $vendedor='';
+     }
     ?>
-    <div class="container">    
-            <div class="col-12 mx-auto">
-            <h4 class="text-left"> Cobros</h4>
+    <div class="container mt-5">    
+        <div class="col-12 mx-auto ">
+            <h4 class="text-center"> Tabla de Cobros <?php echo $vendedor ?> </h4>
+            <div class="d-flex justify-content-center my-5">
                 <form class="form-inline  " action="cobros_flica.php"  method="post">                    
-                     <input type="text" class="form-control mr-1 mb-1" name="cobro" required placeholder="cliente">                    
-                     <input type="number" class="form-control mr-1 mb-1" name="factura" required placeholder="Factura"> 
-                     <input type="number" class="form-control mr-1 mb-1" name="monto" required placeholder="Monto">                                 
-                     <label class="radio-inline ml-3 py-3"><input type="radio" name="optradio" value="abono"> Abono </label>
-                     <label class="radio-inline mx-3 py-3"><input type="radio" name="optradio" value="total"checked> Total </label>                             
-                     <input type="text" class="form-control mr-1 mb-1" name="com-cobro" placeholder="comentarios" >                     
-                     <input type="hidden" class="form-control " name="fecha" value="<?php echo $date?>"> 
-                     <label for="exampleInputEmail1">Direccion de Correo a copiar </label>
-                     <input type="email" class="form-control mx-3" name="correo" aria-describedby="emailHelp" placeholder="escriba correo a copiar">           
-                     <button type="submit" class=" btn btn-warning">enviar</button>
-                </form>
-            </div>   
-    </div>
+            <div class="form-group mr-3 ">           
+               <select name="cliente" id="buscarCliente" class="usuario ml-4" value="<?php echo $row[0] ?>"  >       
+                <option selected value="" onchange="factura()">
+                    Cliente
+                 <?php$_REQUEST['w1'];?></option>
+                <?php
+                $statement= $conexion->prepare("SELECT cliente FROM clientes where vendedor ='$vendedor'  ");
+                $statement->execute();
+                $resultado = $statement->fetchAll(); 
+                foreach ($resultado as $row) {  
+                       ?>                
+                      <option value="<?php echo $row[0] ?>" ><?php echo $row[0] ; ?></option>                 
+                <?php                  
+                   }
+                ?>
+            </select>
+            </div>
+        </div> 
+        </div>                     
+                  
+    <script>        
+            var cliente=document.getElementById('buscarCliente');
+            cliente.addEventListener('change', function(){
+            var selectOption = this.options[cliente.selectedIndex].value;          
+            window.location= "tabla_cobros_ventas.php ?w1=" + selectOption; 
+          
+           
+        });       
     
-              
+    </script>
+      
     </body>
 

@@ -5,8 +5,9 @@ $categoria = $_GET['categoria'];
 ?>
 <?php
 require 'views/nav.view.php';
-/* require 'funciones.php'; */
+//require 'funciones.php'; 
 $fotos_por_pagina = 6;
+
 
 $pagina_actual = (isset($_GET['p']) ? (int)$_GET['p'] : 1);
 $inicio = ($pagina_actual > 1) ? $pagina_actual * $fotos_por_pagina - $fotos_por_pagina : 0;

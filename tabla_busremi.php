@@ -31,10 +31,15 @@ require "views/nav-admin.php";
     </table>
 </div>
 <div class="container">
-    <table id="tablar">    
+    <table id="tablar">  
+       
     </table>
 </div>
-
+<center>
+    <div>
+    			<a href="views_reporte.php" class="text-center"><button class="btn btn-success my-2">salir</button>   </a>
+    		</div>
+</center>
 <script >
 
 function ocultar(){
@@ -106,6 +111,7 @@ $('#formulario').change(function(){
              remis.innerHTML += (id);
                          
              document.getElementById('titulo').appendChild(remis);
+            
             for(var i= 0;i< response.length;i++){
                 var elemento1 = document.createElement('tr');
            elemento1.innerHTML += ("<td>"+response[i].producto+"</td>");

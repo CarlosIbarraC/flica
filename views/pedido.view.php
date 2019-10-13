@@ -27,19 +27,22 @@
         </div>
         <div class="form-group">
         <i class="icono izquierda fa fa-id-card"></i>
-        <input type="number" name="nit" class="usuario " placeholder="NIT solo numeros" size ='12'  value="<?php echo $nit ?>" required>                 
+        <input type="number" name="nit" class="usuario factura" placeholder="NIT solo numeros" size ='12'  value="<?php echo $nit ?>" required>                 
         </div>  
         <div class="form-group">
         <i class="icono izquierda fas fa-suitcase"></i> 
         <select name="vendedor" id="" class="usuario" required>       
-            <option selected value="0">Elige Vendedor </option>
+            <option selected value="0">Seleccione Vendedor </option>
             <?php
               $statement= $conexion->prepare("SELECT vendedor FROM vendedores ");
                $statement->execute();
                $resultado = $statement->fetchAll(); 
                foreach ($resultado as $row) {
                   
-                  echo "<option value=".$row['vendedor'].">" .$row['vendedor']. "</option>";
+                  
+                  ?>                
+                  <option value="<?php echo $row['vendedor'] ?>" ><?php echo $row['vendedor'] ?></option>
+                  <?php
                }
             ?>
         </select>
