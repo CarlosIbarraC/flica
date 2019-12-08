@@ -3,6 +3,7 @@
 error_reporting(0);
 header('Content-type: application/json; charset=utf-8');
 $remision = $_POST['remision'];
+ 
 $conexion = new mysqli('localhost', 'root', '', 'galeria');
 
 if($conexion->connect_errno){

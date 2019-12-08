@@ -1,12 +1,13 @@
 <?php  //ventas
 require 'funciones.php';
 require 'views/nav-admin.php';
-
+require 'views/viewFormVendedores.php'; 
 $mensaje='';
+
 
 //$enviado='';
 if ($_SERVER['REQUEST_METHOD'] == 'POST'  ) {     
-    //ini_set("display_errors", 0);
+    echo $_POST['vendedor'];
     $vendedor = $_POST['vendedor']; 
     $vendedor = filter_var($vendedor,FILTER_SANITIZE_STRING);   
     $clave = $_POST['clave'];
@@ -51,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'  ) {
 
 }
 
-require 'views\viewFormVendedores.php';
+
 ?>
 
 

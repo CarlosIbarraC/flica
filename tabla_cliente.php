@@ -24,7 +24,7 @@ if($conexion->connect_errno){
 			'ciudad'	=> $fila['ciudad'],
 			'nit'	=> $fila['nit'],
 		];
-		array_push($respuesta,$usuario);
+		array_push($respuesta,$usuario); 
 	}
 }
 echo json_encode($respuesta);  

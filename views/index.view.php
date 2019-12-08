@@ -40,18 +40,11 @@
 			<div id="buscador" class="my-4">			 
 			</div>
 			
-		</center>
-
-		<script type="text/javascript"> 
-		$(document).ready(funtion({
-           $('#buscador').load('buscadorCliente.php');
-		}));		
-		
-		</script>
+		</center>		
         <section class="fotos">	
           <div class="contenedor">
 				<div class="row mx-0">
-					<div class="col-12 col-sm-4">
+					<div class="col-12 col-sm-4 acordeon">
 						<?php
 						require 'categorias.php';
 						?>
@@ -72,11 +65,11 @@
 							</div>
 							<div class="paginacion">
 								<?php if ($pagina_actual > 1): ?>
-						<a href="index.php?p=<?php echo $pagina_actual - 1; ?>&id=#fot" class="izquierda"><i class="fas fa-angle-left"></i> Pagina Anterior</a>
+						<a href="index.php?p=<?php echo $pagina_actual - 1; ?>&id=#fot" class="izquierda"><i class="material-icons">	keyboard_arrow_left</i> Pagina Anterior</a>
 					<?php endif ?>
 						
 					<?php if ($total_paginas != $pagina_actual): ?>
-						<a href="index.php?p=<?php echo $pagina_actual + 1; ?>&id=#fot" class="derecha">Pagina Siguiente <i class="fas fa-angle-right"></i></a>
+						<a href="index.php?p=<?php echo $pagina_actual + 1; ?>&id=#fot" class="derecha">Pagina Siguiente <i class="material-icons">	keyboard_arrow_right</i></a>
 					<?php endif ?>		
 						</div>
 					</div>
@@ -118,8 +111,7 @@
 	</center>
 	<a href="#" id="js_up" class="boton-subir">
  
-  <i class="fas fa-arrow-circle-up" aria-hidden="true"></i>
-  <!-- <i class="fas fa-arrow-circle-up"></i> -->
+  <i class="material-icons" aria-hidden="true">vertical_align_top</i>
  
 </a>
 

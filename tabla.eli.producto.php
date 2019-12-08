@@ -6,8 +6,11 @@ require 'views/nav-admin.php';
 error_reporting(E_ALL ^ E_NOTICE);
 
 ?>
- <div id="tabla1">
+<div id="buscador">
+
 </div>
+ <div id="tabla1">
+</div> 
 
 
 
@@ -44,15 +47,15 @@ error_reporting(E_ALL ^ E_NOTICE);
 <script>
 
 $(window).scroll(function(){
- if($(this).scrollTop() > 300){ 
-   $("#js_up").slideDown(300);
+ if($(this).scrollTop() > 250){ 
+   $("#js_up").slideDown(250);
  }else{ // si no
-   $("#js_up").slideUp(300); 
+   $("#js_up").slideUp(250); 
  }
 });
 
 
-$("#js_up i").on('click', function (e) { 
+$("#js_up i").on('click', function (e) {   
  e.preventDefault(); 
  $("body,html").animate({
    scrollTop: 0 

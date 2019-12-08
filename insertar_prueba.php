@@ -13,9 +13,9 @@ if($conexion->connect_errno){
 	$resultados = $statement->get_result();
 	
 	$respuesta = [];
-    echo '<option value="0">Seleccionalo</option>';
+    echo '<option value="0">Seleccionar cliente</option>';
 	while(($fila = $resultados->fetch_assoc()) != NULL){       
         echo '<option value="'.$fila["cliente"].'">'.$fila["cliente"].'</option>';
 		array_push($respuesta,$fila["cliente"]);
 	}
-}
+} 

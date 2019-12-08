@@ -5,7 +5,7 @@ require '../funciones.php';
 session_start();
 error_reporting(E_ALL ^ E_NOTICE);
 $t = $_SESSION['titulo'];
-?>
+?> 
 
 
 <div class="row mx-auto">
@@ -45,8 +45,8 @@ $t = $_SESSION['titulo'];
         <td><?php echo $row["titulo"]?> </td>
         <td><?php echo $row["referencia"]?> </td>
         <td><?php echo $row["caracteristicas"]?></td>
-        <td><button class="btn btn-warning" data-toggle="modal" data-target="#modalEdicion1" onclick="agregaform1('<?php echo $datos ?>')"><i class="fas fa-pencil-alt"></i></button></td>
-        <td><button class="btn btn-danger "onclick="preguntaSiNo('<?php echo $ix ?>')"><i class="fas fa-times"></i></button></td>
+        <td><button class="btn btn-warning" data-toggle="modal" data-target="#modalEdicion1" onclick="agregaform1('<?php echo $datos ?>')"><i class="material-icons"> create</i></button></td>
+        <td><button class="btn btn-danger "onclick="preguntaSiNo('<?php echo $ix ?>')"><i class="material-icons"> clear</i></button></td>
     </tr>
     <?php 
                  }

@@ -8,12 +8,13 @@
 </center>
 
     <?php    
-    $date=  date("Y/m/d")." h: ".  date("h:i:a"); 
+   
     if(isset($_SESSION['vendedor'])){
     $vendedor=$_SESSION['vendedor'];
      }else{
          $vendedor='';
      }
+    
     ?>
     <div class="container mt-5">    
         <div class="col-12 mx-auto ">
@@ -26,7 +27,7 @@
                     Cliente
                  <?php$_REQUEST['w1'];?></option>
                 <?php
-                $statement= $conexion->prepare("SELECT cliente FROM clientes where vendedor ='$vendedor'  ");
+                $statement= $conexion->prepare("SELECT cliente FROM clientes  order by cliente ");
                 $statement->execute();
                 $resultado = $statement->fetchAll(); 
                 foreach ($resultado as $row) {  
@@ -36,7 +37,7 @@
                    }
                 ?>
             </select>
-            </div>
+            </div> 
         </div> 
         </div>                     
                   
@@ -44,7 +45,8 @@
             var cliente=document.getElementById('buscarCliente');
             cliente.addEventListener('change', function(){
             var selectOption = this.options[cliente.selectedIndex].value;          
-            window.location= "tabla_cobros_ventas.php ?w1=" + selectOption; 
+            window.location= "modalFactira.php ?w1=" + selectOption; 
+
           
            
         });       

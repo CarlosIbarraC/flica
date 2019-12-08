@@ -14,7 +14,7 @@ $inicio = ($pagina_actual > 1) ? $pagina_actual * $fotos_por_pagina - $fotos_por
 
 /* $conexion = conexion('galeria', 'root', ''); */
 $conexion = conexion('galeria','root','');
-
+//$conexion = conexion( 'rodillos_galeria', 'rodillos_rodillo', 'salome-1978');
 if (!$conexion) {
 	die();
 }
@@ -52,7 +52,7 @@ $total_paginas = ceil($total_post / $fotos_por_pagina);
 		<div class="contenedor ">
 			<div class="col-12">
 				<div class="row ">
-				<div class="col-12 col-sm-4">						
+				<div class="col-12 col-sm-4"> 						
 										
 				<?php
 				require 'categorias.php';
@@ -98,7 +98,7 @@ $total_paginas = ceil($total_post / $fotos_por_pagina);
 	</center>
 	<a href="#" id="js_up" class="boton-subir">
  
- <i class="fas fa-arrow-circle-up" aria-hidden="true"></i>
+ <i class="material-icons" aria-hidden="true">	trending_up</i>
  <!-- <i class="fas fa-arrow-circle-up"></i> -->
 
 </a>

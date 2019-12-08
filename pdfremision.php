@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'php\fpdf.php';
+require 'php/fpdf.php';
 require 'php/helveticab.php';
 require 'funciones.php';
 
@@ -8,7 +8,7 @@ if($_SESSION['cliente'] || $_SESSION['remi']){
    $nombre = $_SESSION['cliente'];
    $remision = $_SESSION['remi'];
 
-} else{
+} else{  
 
    header('Location: remicli.php');
 }

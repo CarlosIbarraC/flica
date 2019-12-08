@@ -13,7 +13,7 @@ $t = $_SESSION['titulo'];
     <h2 class="h3">Tabla para Ingreso de Datos de <?php echo $t?></h2>
     <table class= "table table-hover table-condensed table-bordered">
   
-    <button class="btn btn-primary btn-large " data-toggle="modal" data-target="#modalNuevo">Agregar nuevo <i class="fas fa-plus"></i>   </button>
+    <button class="btn btn-primary btn-large  my-3" data-toggle="modal" data-target="#modalNuevo">Agregar nuevo <i class="material-icons"> add_box </i>   </button>
     
     <tr>
        <td>Producto</td> 
@@ -24,8 +24,8 @@ $t = $_SESSION['titulo'];
     </tr>
     <?php
     
-                /* $conexion = conexion('galeria','root', ''); */
-                $conexion = conexion('galeria','root','');
+                 $conexion = conexion('galeria','root', ''); 
+                //$conexion = conexion( 'rodillos_galeria', 'rodillos_rodillo', 'salome-1978');
                 if(!$conexion){
                    
 	            header('location: index.php');

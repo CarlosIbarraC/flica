@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>Rodillos Flica</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no,
 	 initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">	
 	<link href="https://fonts.googleapis.com/css?family=Assistant:200|Kanit:100" rel="stylesheet">
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">	
+	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 	 <link rel="stylesheet" href="css/bootstrap.min.css">
 	 <link rel="stylesheet" href="css/estilos1.css">
 	 <link rel="stylesheet" href="css/alertify.css">
@@ -38,9 +41,8 @@
                          require 'funciones.php';  
 						/* $conexion = conexion('galeria','root', ''); */
 						$conexion = conexion('galeria','root','');
-						                if(!$conexion){
-							            header('location: index.php');
-						                }
+										/* 
+										 */
 						 $statement = $conexion->prepare('SELECT categoria FROM categoria order by categoria desc');
 						                 $statement->execute();
 						                 $resultado = $statement->fetchAll(); ?>	
@@ -84,7 +86,7 @@
 					</ul>
 					
 				</div>
-			<!--  <img src="img/logo-largo.png" alt="logo flica" width="150px" > -->
+			<!--  <img src="img/logo-largo.png" alt="logo flica" width="150px" > --> 
 		</nav>
 		</div>
 		<div class="contenedor">

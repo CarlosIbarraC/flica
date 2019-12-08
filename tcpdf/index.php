@@ -2,8 +2,8 @@
 	require_once('tcpdf/config/lang/eng.php');
 	require_once('tcpdf/tcpdf.php');
 	require_once('conexion.php');
-	$codigo=200;
-	$cantidad=65;
+	$codigo=$_POST['id_referencia'];
+	$cantidad=$_POST['cantidad'];
 
 	$pdf = new TCPDF('P', 'mm', 'C', true, 'UTF-8', false);
 	$pdf->SetTitle('PDF flica PHP'); //Titlo del pdf
@@ -23,6 +23,7 @@
 	//($cosas as $row){
 		
 		$pdf->SetFont('Helvetica', '', 8);
+
 		$descripcion = $row['nombre'];			
 		$barcode = $row['codigo'];
 		$barcode = $pdf->serializeTCPDFtagParameters(array($barcode, 'C128', '', '', 29, 17.5, 0.5, array('position'=>'S', 'border'=>false, 'padding'=>0, 'fgcolor'=>array(0,0,0), 'bgcolor'=>array(255,255,255), 'text'=>true, 'font'=>'helvetica', 'fontsize'=>7, 'stretchtext'=>4), 'N'));

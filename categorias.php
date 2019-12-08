@@ -16,7 +16,7 @@ $conexion = conexion('galeria','root','');
 						                  foreach ($resultado as $row) {
 						                 ?>	 					                                           	    	 
 						                        <center>
-						                        	<div class="col-12  my-2 fondo ">  					                        	   	    		                 
+						                        	<div class="col-12  my-2 fondo acordeon">  					                        	   	    		                 
 						                           	<div class="letra">
 						                           		<a href="crear.tabla.php?categoria=<?php echo $row['categoria'] ?>#fot">   <?php echo $row['categoria'] ?></a><br>
 						                           	</div>

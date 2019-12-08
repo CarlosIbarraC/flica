@@ -10,7 +10,7 @@
       <h1 class="titulo my-4">Ingresar Factura</h1>   
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="formulario1" name="login" >
         <div class="form-group">
-           <i class="icono izquierda fa fa-user"></i>
+           <i class="icono izquierda material-icons">person</i>
            <select name="cliente" id="buscarCliente" class="usuario " value="<?php echo $row[0] ?>" required>       
             <option selected value="">Cliente </option>
             <?php
@@ -26,15 +26,15 @@
         </select>
         </div>
         <div class="form-group">
-        <i class="icono izquierda fas fa-file-invoice-dollar"></i>
+        <i class="icono izquierda material-icons"> insert_drive_file</i>
            <input type="text" name="facturas" class="usuario" placeholder="factura"  required>
         </div>
         <div class="form-group">
-        <i class="icono izquierda far fa-calendar-alt"></i>
+        <i class="icono izquierda material-icons"> event_available</i>
            <input type="date" name="fecha" class="usuario" placeholder="fecha"  required>
         </div>
         <div class="form-group">
-        <i class="icono izquierda fas fa-dollar-sign"></i>
+        <i class="icono izquierda material-icons"> local_atm</i>
            <input type="number" name="monto" step="0.01" class="usuario factura" placeholder="valor"  required>
            
         </div>   

@@ -35,7 +35,7 @@
 	</div>
 	<?php   require 't.productos.php'	?>		
    <center>
-   	 <a href="index.php#fot" class="regresar my-3"><i class="fas fa-angle-left"></i> volover</a>
+   	 <a href="index.php#fot" class="regresar my-3"><i class="fas fa-angle-left"></i> volver</a>
    </center>
 	<center>
 		<footer>

@@ -10,9 +10,34 @@ body {
 	font-size: 16px;
 	font-family: 'Roboto', sans-serif;
 	background: #fff;
-	color:#656563;
+	color:#474746;
 	font-weight: 200;
+	
 }
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 18px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+  
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+  
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+  
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+  }
 a{
 	font-family: 'Roboto', sans-serif;
 	color: #656563; 
@@ -272,6 +297,9 @@ input[type="number"].factura{
 	padding: 20px 20px;
 	background: #f7a7e3;
 }
+td.optradioPago{
+	min-width:450px ;
+}
 div.container.footer{
 	background: #000;
 	height: 400px;
@@ -282,6 +310,15 @@ div.container.footer{
 i.fas.fa-file-pdf{
 	font-size:18px;
 	padding-left: 10px;
+}
+tr.fija{
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	
+}
+#tablaClientes{
+	z-index: 100;
 }
 .label{
 	color: red;
@@ -376,6 +413,9 @@ select.usuario{
 	font-size: 12px;
 
 }
+p{
+	color: #222222;
+}
 .paginacion a i {
 	font-size: 14PX;
 	
@@ -385,7 +425,12 @@ select.usuario{
 	width: 90%;
 	margin: auto;
 }
-
+.titulo{
+	font-size: 24px;
+}
+.acordeon{
+	display: none;
+}
 }
 /* .thumb img {
 	vertical-align: top;

@@ -1,19 +1,16 @@
 <?php
 session_start();
-error_reporting(0);
-header('Content-type: application/json; charset=utf-8');
-
-$cliente = $_POST['nombre'];
-$producto = $_POST['producto'];
+$remision = $_POST['rem'];
+$cliente = $_POST['cliente1'];
+$producto = $_POST['respro'];
 $precio = $_POST['precio'];
 $cantidad = $_POST['cantidad'];
 $subtotal = $_POST['subtotal'];
-$remision = $_POST['remision'];
 $totales = $_POST['totales'];
+
  $_SESSION['cliente']= $cliente;
  $_SESSION['remi']= $remision;
 
-echo $producto;
 
 function validarDatos($cliente,$producto, $precio, $cantidad, $subtotal,$remision,$totales){
 	if($cliente == ''){
@@ -42,8 +39,8 @@ if(validarDatos($cliente,$producto, $precio, $cantidad, $subtotal,$remision,$tot
 	if($conexion->connect_errno){
 		$respuesta = ['error' => true];
 	} else {
-		$statement = $conexion->prepare("INSERT INTO remision(remision, cliente, producto, cantidad, precio, subtotal,acumulado) VALUES(?,?,?,?,?,?,?)"); 
-		$statement->bind_param("sssssss", $remision, $cliente, $producto, $cantidad, $precio, $subtotal,$totales);
+		$statement = $conexion->prepare("INSERT INTO remision(remision, cliente, producto, cantidad, precio, subtotal,acumulado) VALUES('$remision', '$cliente', '$producto', '$cantidad', '$precio', '$subtotal','$totales')"); 
+		
 		$statement->execute();
 
 		if($conexion->affected_rows <= 0){
@@ -56,4 +53,7 @@ if(validarDatos($cliente,$producto, $precio, $cantidad, $subtotal,$remision,$tot
 	$respuesta = ['error' => true];
 }
 
-//echo json_encode($respuesta);
+
+
+
+echo $respuesta = 1;

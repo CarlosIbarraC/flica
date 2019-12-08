@@ -4,9 +4,9 @@
 </center>	
  
 	<div class="row mx-0">
-		<div class="contenedor wrap col-12 col-md-6">			
-				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="wrap1">
-				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre:" value="<?php if(!$enviado && isset($nombre)) echo $nombre ?>">
+		<div class="contenedor wrap col-12 col-md-6 px-sm-1">			
+				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="wrap1 mx-1">
+				<input type="text" class="form-control " id="nombre" name="nombre" placeholder="Nombre:" value="<?php if(!$enviado && isset($nombre)) echo $nombre ?>">
 				<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion:" value="<?php if(!$enviado && isset($direccion)) echo $direccion ?>">
 				<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Telefono:" value="<?php if(!$enviado && isset($telefono)) echo $telefono ?>">
 		            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad:" value="<?php if(!$enviado && isset($ciudad)) echo $ciudad ?>">
@@ -26,13 +26,13 @@
 				<input type="submit" name="submit" class="btn sub" value="Enviar Correo">
 			</form>
 		</div>
-		<div class="col-12 col-md-6  py-5 px-5">
+		<div class="col-12 col-md-6  py-5 px-5 py-sm-2">
 			<h3 class="pt-5 pb-3">NUESTRO CORREO</h3>
 			<h4 class="text-justify parrafo">Si tiene alguna pregunta sobre nuestros Productos o servicios que proveemos. Nosostros intentaremos responder a sus requerimientos y comentarios antes de 24 horas.</h4>
 			<div>
-				<div class="row my-4">
+				<div class="row my-4 ">
 					<div class="col-1">
-						<img src="img/linea.png" alt="">
+						<img src="img/linea.png" class="acordeon" alt="">
 					</div>
 					<div class="col-11 ">
 						<h3 class="text-left pb-1">Contacto & Direccion.</h3>
@@ -40,10 +40,10 @@
 					</div>
 				</div>
 			</div>
-			<h4 class="text-justify parrafo "><i class="fas fa-map-marker-alt pb-2"></i>    Cr 23 # 44-82 sur Barrio Santa Lucia </h4>
-			<h4 class="text-justify parrafo "><i class="fas fa-phone pb-2"></i>   7606430 </h4>
-			<h4 class="text-justify parrafo "><i class="fab fa-whatsapp-square pb-2"></i> 3122837519 </h4>
-			<h4 class="text-justify parrafo "><i class="fas fa-envelope pb-2"></i> flicadistribuciones@gmail.com </h4>
+			<h4 class="text-justify parrafo "><i class="material-icons pb-2"> place</i>    Cr 23 # 44-82 sur Barrio Santa Lucia </h4>
+			<h4 class="text-justify parrafo "><i class="material-icons pb-2"> local_phone</i>   7606430 </h4>
+			<h4 class="text-justify parrafo "><i class="material-icons pb-2"> message</i> 3122837519 </h4>
+			<h4 class="text-justify parrafo "><i class="material-icons pb-2">email</i> flicadistribuciones@gmail.com </h4>
 		</div>
 	</div>
 

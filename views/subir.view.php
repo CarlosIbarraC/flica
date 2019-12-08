@@ -40,8 +40,8 @@ require 'nav-admin.php';
 			 <select REQUIRED name="categoria" >
             <option value="" disabled selected>seleccione Categoria</option>
 				<?php
-			/* 	$conexion = conexion('galeria','root', ''); */
-			$conexion = conexion('galeria','root','');
+			 	$conexion = conexion('galeria','root', ''); 
+			//$conexion = conexion( 'rodillos_galeria', 'rodillos_rodillo', 'salome-1978');
                 if(!$conexion){
 	            header('location: index.php');
                 }
@@ -63,7 +63,7 @@ require 'nav-admin.php';
 				<img src="fotos/<?php echo $foto['imagen']; ?>"class="img-thumbnail " alt="">
 			</div>       
            </div>
-		   <div id="tabla">
+		   <div id="tabla"> 
 		   </div>
 		   <!-- Button trigger modal -->
 			
@@ -120,7 +120,7 @@ require 'nav-admin.php';
 		</form>	
 	</div>	
    <center>
-   	 <a href="index.php" id="fin" class="regresar  my-3"><i class="fas fa-angle-left"></i> volover</a>
+   	 <a href="index.php" id="fin" class="regresar  my-3"><i class="material-icons"> keyboard_arrow_left </i> volver</a>
    </center>
 <?php  error_reporting(E_ALL ^ E_NOTICE);
 
