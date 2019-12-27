@@ -1,16 +1,15 @@
 <?php
 session_start();
-$remision = $_POST['rem'];
-$cliente = $_POST['cliente1'];
-$producto = $_POST['respro'];
-$precio = $_POST['precio'];
-$cantidad = $_POST['cantidad'];
-$subtotal = $_POST['subtotal'];
-$totales = $_POST['totales'];
-
+$productos= json_decode($_POST["json"]);
+$remision = ($productos->{"data"}[0]->{"remision"});
+$cliente = ($productos->{"data"}[0]->{"nombre"});
+$producto = ($productos->{"data"}[0]->{"producto"});
+$precio = ($productos->{"data"}[0]->{"precio"});
+$cantidad = ($productos->{"data"}[0]->{"cantidad"});
+$subtotal = ($productos->{"data"}[0]->{"subtotal"});
+$totales = ($productos->{"data"}[0]->{"totales"});
  $_SESSION['cliente']= $cliente;
  $_SESSION['remi']= $remision;
-
 
 function validarDatos($cliente,$producto, $precio, $cantidad, $subtotal,$remision,$totales){
 	if($cliente == ''){
@@ -53,7 +52,7 @@ if(validarDatos($cliente,$producto, $precio, $cantidad, $subtotal,$remision,$tot
 	$respuesta = ['error' => true];
 }
 
+$respuesta = 1;
 
 
-
-echo $respuesta = 1;
+echo json_encode($respuesta);

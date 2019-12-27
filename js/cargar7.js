@@ -24,55 +24,44 @@ function cargar_remision(e) {
         if (formulario_valido()) {
             error_box.classList.remove("active");
             totales = totales + parseFloat(formulario1.subtotal.value);
-            document.getElementById("totales").value=totales;          
-          var formulario3 = document.getElementById('formulario1');
-          var datos = new FormData(formulario3);
-               console.log(datos.get('rem'));
-               console.log(datos.get('cliente1'));
-               console.log(datos.get('respro'));
-               console.log(datos.get('precio'));
-               console.log(datos.get('cantidad'));
-               console.log(datos.get('subtotal'));
-               console.log(datos.get('totales'));
-              fetch('js/tablaingresorem.php',{
-                  method:'POST',
-                  body:datos,
-                  dataType:'json'
-              })
-             
-              .then(res =>res.json())
-              .then(data=>{
-                 
-                  if(data==1){
-                    cargar_datos();
-                    mostrar(); 
-                    loader.classList.remove("active");
-                   
-                formulario1.codigo.value = "";
-                formulario1.respro.value = "";
-                formulario1.cantidad.value = "";
-                formulario1.precio.value = "";
-                formulario1.subtotal.value = "";
-                alert("ha sido ejecutada la accion")       
-                      
-                  }else{
-                   
-                respuesta.innerHTML =`
-                <div class="alert alert-danger" role="alert">
-                Error en la transmision de datos
-              </div>
-                `     
-                  }
-              })
-             
-                   
-                }
-                 
+            document.getElementById("totales").value=totales;         guardar(); 
+            console.log(datos());          
+      }              
                
-    }      
+     }      
         
     }
 
+function guardar(){
+        var json= JSON.stringify(datos());            
+    ajax("js/tablaingresorem.php",{"json":json})
+           .done(function(info){
+              cargar_datos();
+              console.log(info);
+              mostrar(); 
+              loader.classList.remove("active");
+             
+          formulario1.codigo.value = "";
+          formulario1.respro.value = "";
+          formulario1.cantidad.value = "";
+          formulario1.precio.value = "";
+          formulario1.subtotal.value = "";
+          alert("ha sido ejecutada la accion")  
+           });
+    } 
+function ajax(url,data){
+        var ajax= $.ajax({
+            "method":"POST",
+            "url":url,
+            "data":data
+        })
+        return ajax;
+    }
+function datos (){
+        var data =[{"nombre":nombre,"remision":rem,"producto":producto,"precio":precio,"cantidad":cantidad,"subtotal":subtotal,"totales":totales}];
+        var productos ={"data":data};
+        return productos;             
+    } 
 var btn_cargar = document.getElementById("btn");
 btn_cargar.addEventListener("click", function (e) {
     cargar_remision(e);
@@ -86,6 +75,7 @@ function formulario_valido() {
         $("#subtotal").val("");
         $("#codigo").focus();
        
+
         return false;
     }
     return true;

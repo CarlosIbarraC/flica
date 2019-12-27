@@ -2,26 +2,22 @@
 require 'funciones.php'; 
 require 'views/nav-admin.php';
 ?>
-
-
 <div class="contenedor">
-
-    <form action="" method="" id="formulario" onclick="saltar(event,'codigo')">
+    <form action="" method="" id="formulario">
         <div class="row mx-0">
             <div class="col-8">
-                <input type="text" id="fecha" placeholder="fecha:" class="form-control" maxlength="7" readonly>
+                <input type="text" id="fecha" placeholder="fecha:Año/mes/dia" class="form-control"  readonly>
                 <input id="cli" class="p-0" readonly type="hidden">
             </div>
             <div class="col-4">
-                <input type="number" id="remision" placeholder="n:" class="form-control test-right" readonly>
+                <input type="number" id="remision" placeholder="n:" class="form-control test-right"  onchange="foco('formulario1')"  readonly>
             </div>
         </div>
         <div class="selector-pais col-10 col-sm-5 ">
             <span>Elige Cliente</span>
-            <select id="cliente" class="input-group py-2" onchange="saltar(event,'codigo')">
+            <select id="cliente" class="input-group py-2">
             </select>
         </div>
-
 </div>
 </form>
 </div>
@@ -45,7 +41,7 @@ require 'views/nav-admin.php';
 </div>
 <center>
     <div class="col-12" mt-4>
-        <form action="" class="form-group" id="formulario1" >
+        <form action="" class="form-group" id="formulario1">
             <input type="hidden" id="cliente1" name="cliente1">
             <input type="hidden" id="rem" name="rem">
             <input id="codigo" type="number" name="codigo" placeholder="codigo barras" class="p-2" required
@@ -86,6 +82,9 @@ require 'views/nav-admin.php';
     </div>
 </center>
 <center>
+    <div id="respuesta"></div>
+</center>
+<center>
     <div>
         <a href="views_reporte.php" class="text-center"><button class="btn btn-success my-2">salir</button> </a>
     </div>
@@ -94,8 +93,9 @@ require 'views/nav-admin.php';
 </div>
 <script src="js/cargar.js">
 </script>
-<script src="js/cargar4.js">
-</script>
+<!-- <script src="js/cargar5.js">
+</script> -->
+<script src="js/cargar7.js">
 </script>
 <script src="js/aritmeticas.js">
 </script>

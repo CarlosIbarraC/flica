@@ -37,7 +37,7 @@ function cargar_remision(e) {
                     subtotal: subtotal,
                     totales: totales
                 },
-                 url:'tabla_ingreso_rem.php',
+                 url:'js/tablaingresorem.php',
                  type:'post'  
                 })   
 

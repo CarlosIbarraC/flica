@@ -38,6 +38,7 @@ $("#formulario").change(function (e) {
         var respuesta6 = ("Nit:" + response[0].nit);
         var respuesta7 = (response[0].cliente);
         document.getElementById("cli").value = respuesta7;
+        console.log(document.getElementById("cli").value);
         document.getElementById("pos1").innerHTML = respuesta1;
         document.getElementById("pos2").innerHTML = respuesta2;
         document.getElementById("pos3").innerHTML = respuesta3;
@@ -53,19 +54,26 @@ $("#formulario").change(function (e) {
         peticion.send(parametros);
         peticion.onload = function () {
             mostrarVariables();
+           
         };
     });
 });
 
-function mostrarVariables() {
+
+function mostrarVariables() { 
     $.ajax({
         type: "POST",
         url: "tabla_verremision.php",
         success: function (response) {
-            var respuesta1 = (response[0].fecha);
+            var respuesta1 =new Date();         
+             y = respuesta1.getFullYear();
+             m = respuesta1.getMonth() + 1;
+             d = respuesta1.getDate();
+             respuesta1 = y + "/" + m + "/" + d;
             var respuesta2 = (response[0].remision);
             document.getElementById("fecha").value = respuesta1;
             document.getElementById("remision").value = respuesta2;
+            
         }
     });
 }

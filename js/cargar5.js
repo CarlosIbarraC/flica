@@ -3,7 +3,7 @@ function cargar_remision(e) {
     codigov = document.getElementById("codigo").value;    
     console.log(codigov);
     if (!codigov || codigov === "NaN" || codigov === "undefined" ||
-        codigov === "" || codigov < 7705555000  || codigov > 7705555500 ) {
+        codigov === "" || codigov < 7705555188  || codigov > 7705555500 ) {
         alert("numero de codigo no valido");
         console.log(codigov);        
         $("#codigo").val("");
@@ -27,49 +27,54 @@ function cargar_remision(e) {
             document.getElementById("totales").value=totales;          
           var formulario3 = document.getElementById('formulario1');
           var datos = new FormData(formulario3);
-               console.log(datos.get('rem'));
-               console.log(datos.get('cliente1'));
-               console.log(datos.get('respro'));
-               console.log(datos.get('precio'));
-               console.log(datos.get('cantidad'));
-               console.log(datos.get('subtotal'));
-               console.log(datos.get('totales'));
-              fetch('js/tablaingresorem.php',{
-                  method:'POST',
-                  body:datos,
-                  dataType:'json'
-              })
-             
-              .then(res =>res.json())
-              .then(data=>{
-                 
-                  if(data==1){
-                    cargar_datos();
-                    mostrar(); 
-                    loader.classList.remove("active");
-                   
-                formulario1.codigo.value = "";
-                formulario1.respro.value = "";
-                formulario1.cantidad.value = "";
-                formulario1.precio.value = "";
-                formulario1.subtotal.value = "";
-                alert("ha sido ejecutada la accion")       
-                      
-                  }else{
-                   
-                respuesta.innerHTML =`
-                <div class="alert alert-danger" role="alert">
-                Error en la transmision de datos
-              </div>
-                `     
-                  }
-              })
-             
-                   
-                }
-                 
+          //---------------------------
+          const READY_STATE_COMPLETE = 4, STATUS_OK = 200;
+          var btn = document.querySelector('#btn');
+          var myNavigator = ()=>{
+          let nav =(window.XMLHttpRequest)? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+          return nav;
+          }
+          var setRequest = (callback,route,data)=>{
+            let req = myNavigator();
+            data= JSON.stringify(data);
+            req.onreadystatechange = callback;
+            req.open('POST',route,true);
+            req.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            req.send('data='+ data);
+        } 
+        
+        let route = 'js/tablaingresorem.php',
+         data={"remision": rem,
+        "nombre":nombre,
+        "producto": producto,
+       " precio": precio,
+       "cantidad": cantidad,
+       "subtotal": subtotal,
+        "totales": totales}
+    setRequest(function(){
+          if(this.readyState== READY_STATE_COMPLETE){
+              if(this.status == STATUS_OK){
+                 //let json_data = JSON.parse(text);
+                 console.log(data);
+                 cargar_datos();
+                 mostrar(); 
+                 loader.classList.remove("active");
+                
+             formulario1.codigo.value = "";
+             formulario1.respro.value = "";
+             formulario1.cantidad.value = "";
+             formulario1.precio.value = "";
+             formulario1.subtotal.value = "";
+
+              }else{
+                  console.log(this.status);
+              }
+          }
+    },route,data)            
+                         
+        }  
                
-    }      
+      }      
         
     }
 
