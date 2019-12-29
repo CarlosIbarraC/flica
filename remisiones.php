@@ -2,8 +2,6 @@
 require 'funciones.php'; 
 require 'views/nav-admin.php';
 require 'views/remision.view.php';
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $cliente = $_POST['cliente'];
