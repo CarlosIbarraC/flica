@@ -148,3 +148,22 @@ function Sumar() {
   var suma = parseInt(n1) * parseInt(n2);
   document.getElementById("canto").value = suma;
 }
+
+function agregarRemision(remision,cliente,producto,cantidad,precio){
+  cadena="remision=" + remision + "&cliente=" + cliente + "&producto=" + producto  + "&cantidad=" + cantidad + "&precio=" + precio;
+$.ajax({
+  type:"POST",
+  url:"agregarRemision.php",
+  data:cadena,
+  success:function(r){
+    if(r=1){
+      $('#tabla').load('tablaRemision.php');
+      alertify.success("agregado con exito");
+    }else{
+      alertify.success("Falla en el servidor");
+    }
+
+  }
+})
+
+}

@@ -8,6 +8,7 @@ var tabla = document.getElementById("tabla");
 var loader = document.getElementById("loader");
 
 
+
 function ocultar() {
     document.getElementById("remis").style.display = "none";
 }
@@ -25,6 +26,7 @@ $(document).ready(function () {
     });
 });
 $("#formulario").change(function (e) {
+    
     var postData = {
         cliemte: $("#cliente").val()
     };
@@ -45,6 +47,7 @@ $("#formulario").change(function (e) {
         document.getElementById("pos4").innerHTML = respuesta4;
         document.getElementById("pos5").innerHTML = respuesta5;
         document.getElementById("pos6").innerHTML = respuesta6;
+        $('#agregarP').removeClass('remision');
         var peticion = new XMLHttpRequest();
         peticion.open("POST", "tabla_numeroremision.php");
         cliente = (response[0].cliente);

@@ -58,6 +58,9 @@ input{
 	color: #fff;
 	font-weight: 100;
 }
+.remision{
+	display: none;
+}
 
 span.select2-dropdown{
 	background: #595858;

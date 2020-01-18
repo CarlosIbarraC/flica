@@ -63,9 +63,9 @@ function datos (){
         return productos;             
     } 
 var btn_cargar = document.getElementById("btn");
-btn_cargar.addEventListener("click", function (e) {
+/* btn_cargar.addEventListener("click", function (e) {
     cargar_remision(e);
-});
+}); */
 function formulario_valido() {
     if (formulario1.respro.value === "") {
         console.log(formulario1.respro.value);
