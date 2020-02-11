@@ -6,7 +6,6 @@ function agregardatos(titulo, referencia, caracteristicas) {
     referencia +
     "&caracteristicas=" +
     caracteristicas;
-
   $.ajax({
     type: "POST",
     url: "agregarDatos.php",
@@ -15,7 +14,6 @@ function agregardatos(titulo, referencia, caracteristicas) {
       if (r == 1) {
         $("#tabla").load("views/tabla.php");
         $("#tabla1").load("views/tabla.eli.php");
-
         alertify.success("agregado con exito ");
         header("Location: subir.php");
       } else {
@@ -36,11 +34,10 @@ function agregaform1(datos) {
   $("#referenciae").val(d["2"]);
   $("#caracteristicase").val(d["3"]);
 }
-function actualizadatos() {
+/* function actualizadatos() {
   id = $("#id").val();
   referencia = $("#referenciae").val();
   caracteristicas = $("#caracteristicase").val();
-
   cadena1 =
     "id=" +
     id +
@@ -48,7 +45,6 @@ function actualizadatos() {
     referencia +
     "&caracteristicas=" +
     caracteristicas;
-
   $.ajax({
     type: "POST",
     url: "actualizadatos.php",
@@ -63,8 +59,36 @@ function actualizadatos() {
       }
     }
   });
+} */
+function preguntaSiNoItemRemi(id) {
+  alertify.confirm(
+    "Eliminar Datos",
+    "Esta seguro en eliminar el registro?",
+    function() {
+      eliminarItemRem(id);
+    },
+    function() {
+      alertify.error("Cancelar");
+    }
+  );
 }
+function eliminarItemRem(id) {
+  cadena = "id=" + id;
+  $.ajax({
+    type: "POST",
+    url: "eliminarItemRem.php",
+    data: cadena,
+    success: function(r) {
+      if (r == 1) {
+        $("#tabla").load("tablaRemision.php");       
 
+        alertify.success("Eliminado con Exito");
+      } else {
+        alertify.error("fallo el servidor ");
+      }
+    }
+  });
+}
 function preguntaSiNo(id) {
   alertify.confirm(
     "Eliminar Datos",
@@ -126,7 +150,6 @@ function eliminarCodigos(id) {
 }
 function buscadores(id) {
   cadena = "id=" + id;
-
   $.ajax({
     type: "POST",
     url: "buscador.php",
@@ -134,7 +157,6 @@ function buscadores(id) {
     success: function(r) {
       if (r == 1) {
         $("#foto").load("foto.php");
-
         header("Location:index.php");
       } else {
         alertify.error("Ingresa formulario Inicial ");
@@ -148,7 +170,6 @@ function Sumar() {
   var suma = parseInt(n1) * parseInt(n2);
   document.getElementById("canto").value = suma;
 }
-
 function agregarRemision(remision,cliente,producto,cantidad,precio){
   cadena="remision=" + remision + "&cliente=" + cliente + "&producto=" + producto  + "&cantidad=" + cantidad + "&precio=" + precio;
 $.ajax({
@@ -162,8 +183,6 @@ $.ajax({
     }else{
       alertify.success("Falla en el servidor");
     }
-
   }
 })
-
 }

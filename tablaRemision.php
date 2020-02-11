@@ -8,8 +8,7 @@
             <td>producto</td>
             <td>Precio</td>
             <td>Cantidad</td>
-            <td>subtotal</td> 
-            <td>Editar</td>
+            <td>subtotal</td>            
             <td>Eliminar</td>           
         </tr>
           <?php
@@ -36,15 +35,12 @@
           ?>
         <tr>           
             <td><?php echo $row[3]?></td>
-            <td><?php echo number_format($row[5])?></td>
+            <td><?php echo "$ ".number_format($row[5])?></td>
             <td><?php echo $row[4]?></td>
-            <td><?php echo number_format($Total=$row[5]*$row[4]);
-            $Total1=$Total+$Total1?></td>
+            <td><?php echo "$ ".number_format($Total=$row[5]*$row[4]);
+            $Total1=$Total+$Total1?></td>           
             <td>
-            <button class="btn btn-warning material-icons"  data-toggle="modal" data-target="#modalEdicion">create</button>
-            </td>
-            <td>
-            <button class="btn btn-danger material-icons">clear</button>
+            <button class="btn btn-danger material-icons" onclick = "preguntaSiNoItemRemi('<?php echo $row[0] ?>')">clear</button>
             </td>
         </tr>
         
@@ -54,7 +50,7 @@
          <tr class="bg-secondary text-white">
             <td>TOTAL</td>
             <td colspan="2"></td>            
-            <td><?php echo number_format($Total1)?></td>
+            <td><?php echo "$ ".number_format($Total1)?></td>
             <td colspan="2"></td>
             
         </tr> 

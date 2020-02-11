@@ -41,8 +41,7 @@ require 'views/nav-admin.php';
 
     <div class='contenedor col-12' > 
    
-    <a href="lector.php">  
-    <button class="btn btn-warning btn-large my-3 mx-2 " >Prueba de Lector <i class="material-icons" >crop_free</i> </button></a>    
+       
     <a href="codigo/index.php">  
     <button class="btn btn-warning btn-large my-3 mx-2 " >Listado de codigos <i class="material-icons" >style</i>   </button></a>
     <a href="codigos.php">  

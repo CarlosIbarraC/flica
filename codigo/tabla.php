@@ -22,7 +22,7 @@ $arraycodigos=array();
     <tr>
          <td><?php echo $ver[1]; ?></td>
          <td>
-         
+        
            <svg id='<?php echo "barcode".$ver[2]; ?>'></svg> 
                
          </td>

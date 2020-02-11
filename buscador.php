@@ -32,10 +32,11 @@ $resultado = $statement->fetchAll();
 
 <script type="text/javascript">
   $(document).ready(function(){
-      $('#buscadorvivo').select2();
+      $('#buscadorvivo').select2();     
       
       $('#buscadorvivo').change(function(){
         var id =  $('#buscadorvivo').val();
+        console.log( $('#buscadorvivo').val());
        $.ajax({
          type:"POST",
          data:'id=' + id,

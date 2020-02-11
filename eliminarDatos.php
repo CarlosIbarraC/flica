@@ -1,5 +1,4 @@
 <?php
-
 require "funciones.php";
 /* $conexion = conexion('galeria','root', ''); */
 $conexion = conexion('galeria','root','');

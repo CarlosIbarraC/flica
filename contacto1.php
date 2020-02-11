@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 	}
 
 	if(!$errores){
-		$enviar_a = 'ceibarra1@gmail.com';
+		$enviar_a = 'flicadistribuciones@gmail.com';
 		$asunto = 'Correo enviado desde Flica.com';
 		$mensaje_preparado = "De: $nombre \n";
 		$mensaje_preparado .= "Direccion: $direccion \n";

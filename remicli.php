@@ -2,14 +2,6 @@
 session_start();
 require 'funciones.php'; 
 require 'views/nav-admin.php';
-$conexion = conexion('galeria','root','');
-$resultado=0;
-    if(!$conexion){
-      header('location: index.php');
-    }
-    $statement = $conexion->prepare("SELECT id,titulo,referencia FROM referencias ORDER BY titulo ");
-    $statement->execute();
-    $resultado = $statement->fetchAll();
 ?>
 <div class="contenedor">
     <form action="" method="" id="formulario">
@@ -60,100 +52,35 @@ $resultado=0;
 </div>
 <div id="cod4">
 </div>
-<center>
-    <div id="pos8">
-    </div>
-   <div id="tabla" class="container "></div>
-</center>
+
 <center>
     <div id="respuesta"></div>
 </center>
 
-
-<!-- Modal registros nuevos-->
-<div class="modal fade " id="modalRem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content  modal-md ">
-      <div class="modal-header bg-info">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="contenedor d-flex justify-content-center form-group"> 
+<label class="col-form-label" >Producto:</label>             
+      <div id="buscadorC" >                         
+       </div>                 
+      <div class="form-group">
+                  <label class="col-form-label" >C a n t i d a d:</label> <input type="text" class="form-group " id="cantidad"> 
+              </div>
+              <div class="form-group">
+                  <label class="col-form-label ml-2" >P r e c i o:</label> <input type="text" class="form-group " id="precio">
+              </div>      
       </div>
-      <div class="modal-body ">       
-            <div class="form-group"> <!--  id="producto" -->
-                <label class="col-form-label">P r o d u c t o:</label> <br>                
-    <select  id="buscadorP" class="">
-   
-    <?php
-    
-          foreach ($resultado as $ver){          
-    ?>         
-     <option id="producto" value="<?php echo $ver[1]; ?>">
-         
-     <?php echo $ver[1] ." ".$ver[2] ." ".$ver[0] ?> </option>
-    
-    <?php
-       }
-     ?>            
-    </select>                          
-                                                
-              
-                <!-- <input type="text" class="form-group " id="producto">  -->           
-            </div>
-            <div class="form-group">
-                <label class="col-form-label" >C a n t i d a d:</label> <input type="text" class="form-group " id="cantidad"> 
-            </div>
-            <div class="form-group">
-                <label class="col-form-label" >P r e c i o:</label> <input type="text" class="form-group " id="precio">
-            </div>       
-          </div>        
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal" id="guardarnuevo">Guardar</button>
-       
-      </div>
+    <center>
+    <caption>
+      <button class="btn btn-info mb-3" id="guardarnuevo" >Agregar productos</button>
+    </caption>
+</center>
+   <center>
+    <div id="pos8">
     </div>
-  </div>
-</div>
+   <div id="tabla" class="container "></div>
+</center>     
+
 <!-- modal para edicion de datos -->
 
-<div class="modal fade" id="modalEdicion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content modal-sm">
-      <div class="modal-header bg-warning">
-        <h5 class="modal-title " id="exampleModalLabel">Editar <span class="material-icons"> create</span></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <div class="form-group">
-                <label class="col-form-label">P r o d u c t o:</label> <input type="text" class="form-group " id="productoE">            
-            </div>
-            <div class="form-group">
-                <label class="col-form-label" >P r e c i o:</label> <input type="nunber" class="form-group " id="precioE"> 
-            </div>
-            <div class="form-group">
-                <label class="col-form-label" >C a n t i d a d:</label> <input type="number" class="form-group " id="cantidadE">
-            </div>        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-dismiss="modal" id="actualizadatos">Actualizar</button>     
-      </div>
-    </div>
-  </div>
-</div>
-<center>
-    <caption>
-            <button class="btn btn-info mb-3" id="agregarP" data-toggle="modal" data-target="#modalRem">Agregar productos</button>
-            </caption>
-</center>
-<center>
-    <div>
-        <a href="views_reporte.php" class="text-center"><button class="btn btn-success my-2">salir</button> </a>
-        <a href="remicli.php" class="text-center"><button class="btn btn-warning my-2">Nueva remision</button> </a>
-    </div>
-</center>
 
 <div class="loader" id="loader">
 </div>
@@ -163,19 +90,21 @@ $resultado=0;
  $(document).ready(function(){
    if ($('#remision').val()=="") {
     $('#agregarP').addClass('remision');
-   }
-  
+   }  
 }); 
+</script>
+
+<script type="text/javascript">
+      $(document).ready(function(){
+        $('#buscadorC').load('buscadorRemisiones.php');
+       
+	  });
 </script>
 <script type="text/javascript">
   $(document).ready(function(){
       $('#buscadorP').select2();
   });
 </script>
-<!-- <script src="js/cargar5.js">
-</script> -->
-<!-- <script src="js/cargar7.js">
-</script> -->
 <script src="js/funciones.js">
 </script>
 <script src="js/aritmeticas.js">
@@ -186,11 +115,11 @@ $(document).ready(function(){
         remision=$('#remision').val();  
         console.log(remision);   
         cliente=$('#cliente').val();       
-        producto=$('#producto').val();        
+        producto=$('#buscadorvivo').val();        
         cantidad=$('#cantidad').val();        
         precio=$('#precio').val();       
         agregarRemision(remision,cliente,producto,cantidad,precio);
-        $('#tabla').load('tablaRemision.php');
+       // $('#tabla').load('tablaRemision.php');
         $('#producto').val(" "); 
         $('#precio').val(" ");
         $('#cantidad').val(" ");
